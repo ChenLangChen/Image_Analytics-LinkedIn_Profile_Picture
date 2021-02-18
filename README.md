@@ -102,5 +102,7 @@ Run *'action.ipynb'*, you can change **sample_url** to the profile url you want.
 
 # References:
 [1] https://sefiks.com/2020/11/20/facial-landmarks-for-face-recognition-with-dlib/
+
 [2] https://github.com/codeniko/shape_predictor_81_face_landmarks
+
 [3] https://www.freecodecamp.org/news/smilfie-auto-capture-selfies-by-detecting-a-smile-using-opencv-and-python-8c5cfb6ec197/
