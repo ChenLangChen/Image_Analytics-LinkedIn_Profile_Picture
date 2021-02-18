@@ -50,7 +50,9 @@ As for calculating the area of the face, I used cv2.contourArea() with the face 
 
 ## Identify if teeth are visible.
 **MAR**: Mouth Aspect Ratio
+
 **EAR** : Eye Aspect Ratio
+
 ![EAR](screenshots/EAR.jpg)
 ```shell
 EAR = (|P2 - P6|+|P3 - P5|) / (2 * |P1 - P4|)
