@@ -34,6 +34,7 @@ contour_area = cv2.contourArea(np.array(sorted_landmarks))
 - The larger EAR, the more likely that the person' eyes are open, not blinking. When the eye is closed, the EAR is close to 0. Similarly, I apply MAR to teeth detected. MAR = lips gap / lips width.[3] MAR over a certain point would indicate that teeth is detected. We need to find the suitable MAR. 
 
 **MAR**: Mouth Aspect Ratio
+
 **EAR** : Eye Aspect Ratio
 
 ![EAR](screenshots/EAR.jpg)
