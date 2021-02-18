@@ -1,0 +1,13 @@
+dlib==19.21.1
+requests==2.24.0
+opencv_python==4.5.1.48
+msrest==0.6.19
+pandas==1.1.4
+scipy==1.5.3
+selenium==3.141.0
+numpy==1.19.3
+matplotlib==3.3.2
+azure_storage==0.37.0
+beautifulsoup4==4.9.3
+Pillow==8.1.0
+scikit_learn==0.24.1
