@@ -10,7 +10,7 @@ from io import BytesIO
 from PIL import Image
 import os
 
-# Collecting headshots urls
+# Collecting headshots urls. These are the image urls from of images in 'evaluation_imgs' folder
 headshots_urls= ['https://images.squarespace-cdn.com/content/v1/5563967ee4b022cec2233829/1585653953623-23F70SL73OWDX8TLUN36/ke17ZwdGBToddI8pDm48kFWxnDtCdRm2WA9rXcwtIYR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UcTSrQkGwCGRqSxozz07hWZrYGYYH8sg4qn8Lpf9k1pYMHPsat2_S1jaQY3SwdyaXg/Impactful+LinkedIn+Headshots_Berkshire.jpg',
                  'https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/2.jpg',
                  'https://static.wixstatic.com/media/efd486_1dddb0c6a1e547048ec7c5dcc3501019~mv2.jpg/v1/fill/w_422,h_434,al_c,q_80,usm_0.66_1.00_0.01/Self%20Branding%20Portrait.webp',
@@ -24,13 +24,13 @@ headshots_urls= ['https://images.squarespace-cdn.com/content/v1/5563967ee4b022ce
                  'https://heroshotphotography.com/wp-content/uploads/2019/08/Asian-Male-actor-headshot-sydney-mobile-800x800.jpg',
                  'https://images.squarespace-cdn.com/content/v1/5c5a48b7809d8e364b16c2bf/1596588733636-BB2IQDZKRFWOG82LARQU/ke17ZwdGBToddI8pDm48kPJXHKy2-mnvrsdpGQjlhod7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmihaE5rlzFBImxTetd_yW5btdZx37rH5fuWDtePBPDaHF5LxdCVHkNEqSYPsUQCdT/unique+linkedin+headshots.jpg?format=500w',
                  'https://i.pinimg.com/236x/46/47/78/4647784cf4071b255427e4a6b1826560--the-edge-warm.jpg',
-                 'https://headshotsadelaide.com/wp-content/uploads/2018/06/Headshots_Adelaide_Professional_Portrait_Photography_W1024__0009.jpg',
+                 'https://images.squarespace-cdn.com/content/v1/592738c58419c2fe84fbdb81/1572790015376-OMSFC6ZF726GPDICFIST/ke17ZwdGBToddI8pDm48kJUlZr2Ql5GtSKWrQpjur5t7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UfNdxJhjhuaNor070w_QAc94zjGLGXCa1tSmDVMXf8RUVhMJRmnnhuU1v2M8fLFyJw/Claire_webCL_6902.jpg?format=1000w',
                  'https://www.corporatephotographerslondon.com/wp-content/uploads/2016/06/London-LinkedIn-Headshot.jpg',
                  'https://headshots.thelightcommittee.com/wp-content/uploads/2019/12/Professional-LinkedIn-Headshot-Los-Angeles.jpg',
                  'https://images.squarespace-cdn.com/content/v1/5aee389b3c3a531e6245ae76/1530390623762-E5L73CY3GKC6QYCA46FM/ke17ZwdGBToddI8pDm48kJUlZr2Ql5GtSKWrQpjur5t7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UfNdxJhjhuaNor070w_QAc94zjGLGXCa1tSmDVMXf8RUVhMJRmnnhuU1v2M8fLFyJw/Tokyo+-+Headshot+-+Photographer+Anthony+Wood+%287%29.jpg',
                  'https://viverastudio.com/wp-content/uploads/2017/03/02-5220-post/IMG_13(pp_w768_h1004).jpg',
                  'https://static.wixstatic.com/media/efd486_39f745ed47704ad7bb87247a540cbc3b~mv2.jpg/v1/fill/w_560,h_546,al_c,q_80,usm_0.66_1.00_0.01/efd486_39f745ed47704ad7bb87247a540cbc3b~mv2.webp',
-                 'https://lh3.googleusercontent.com/proxy/NuDyvE6wME9Lwf19KrTWG0_-XlnIEyE0hcAyKPTHXnZCECk_XfsKNJ2TLMHc1j0g_OZICbxI463AYQo_ccKnlMwalPUw7qvSEjH31NV1nac3DKbctGup3vOr-ESpnVNZsg',
+                 'https://images.squarespace-cdn.com/content/v1/5c5a48b7809d8e364b16c2bf/1596588118239-6M4K9E7XRQAOTTL67MP7/ke17ZwdGBToddI8pDm48kPJXHKy2-mnvrsdpGQjlhod7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmihaE5rlzFBImxTetd_yW5btdZx37rH5fuWDtePBPDaHF5LxdCVHkNEqSYPsUQCdT/LinkedIn+Headshot.jpg',
                  'https://teresawaltonphotos.com/wp-content/uploads/2018/06/Business-headshot-London-W12-Anna.jpg',
                  'https://images.squarespace-cdn.com/content/v1/55bcbba5e4b09c9ffac5f9a3/1527566626234-MSLGNC3W0OV1ZH1BQK84/ke17ZwdGBToddI8pDm48kMFiMyT1nneRMhnmfuSfpxZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0mlM0or4nqX7jrn5yWu0hA1QXedaIFqnAbw_tQShHbKg4-O_KAc44ak5jGzrnn7f3A/Maria-001.jpg?format=2500w',
                  'https://images.squarespace-cdn.com/content/v1/5aee389b3c3a531e6245ae76/1530390599665-CGDMN86RQRLQ8YLM515K/ke17ZwdGBToddI8pDm48kJUlZr2Ql5GtSKWrQpjur5t7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UfNdxJhjhuaNor070w_QAc94zjGLGXCa1tSmDVMXf8RUVhMJRmnnhuU1v2M8fLFyJw/Tokyo+-+Headshot+-+Photographer+Anthony+Wood+%284%29.jpg',
@@ -42,7 +42,7 @@ headshots_urls= ['https://images.squarespace-cdn.com/content/v1/5563967ee4b022ce
                  'https://images.squarespace-cdn.com/content/v1/5aee389b3c3a531e6245ae76/1530390563144-BC9CY4N5JHKV4XFHPVBG/ke17ZwdGBToddI8pDm48kJUlZr2Ql5GtSKWrQpjur5t7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UfNdxJhjhuaNor070w_QAc94zjGLGXCa1tSmDVMXf8RUVhMJRmnnhuU1v2M8fLFyJw/Tokyo+-+Headshot+-+Photographer+Anthony+Wood+%281%29.jpg',
                  'https://cedricpuisney.photography/wp-content/uploads/2020/11/Linkedin-headshot-brussels-European-lobbying.jpg',
                  'https://images.squarespace-cdn.com/content/v1/5c5a48b7809d8e364b16c2bf/1596588103144-YDOUWGJ09KUD4SMJJD6A/ke17ZwdGBToddI8pDm48kPJXHKy2-mnvrsdpGQjlhod7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmihaE5rlzFBImxTetd_yW5btdZx37rH5fuWDtePBPDaHF5LxdCVHkNEqSYPsUQCdT/company+profile+picture.jpg',
-                 'https://lh3.googleusercontent.com/proxy/gxs_QfTEerXUE0Srn9AY8Ndr5vNdQe017U0iFGoJwf2FH2YbRK7IIZqlM_GsXkRggS_UaWRMv3A8_UACko4NPddN6jeMuAdWJ906Vp-IJljXKgkKr-6OSDA',
+                 'https://180dc.org/wp-content/uploads/2018/01/linkedin-headshot-photobooth2.jpg',
                  'https://eddie-hernandez.com/wp-content/uploads/2020/05/tammi_harris_netapp-.jpg',
                  'https://www.capitolphotointeractive.com/wp-content/uploads/2018/03/LinkedInAK5A9615.jpg',
                  'https://az505806.vo.msecnd.net/cms/49bcf23b-16f2-47a8-8571-a6a360910814/91f8412f-791a-443a-a607-6316d1eb757c-lg.jpg',
@@ -64,7 +64,6 @@ headshots_urls= ['https://images.squarespace-cdn.com/content/v1/5563967ee4b022ce
                 ]
 len(headshots_urls)
 # There're 25 teeth-detected headshots, and 25 no-teeth-detected headshots
-
 
 # Create a dataframe
 column_names = ['img_name', 'predict_teeth_label']
@@ -100,16 +99,16 @@ def save_img (img_url):
 for item in headshots_urls:
     print("Processing: ", headshots_urls.index(item))
     save_img(item)
-df
 
-# Creating true labels 
+df.head()
+
+# Creating true labels
 labels = []
 for i in range(25):
     #labels.append(0)
     labels.append(1)
 
 df['true_label'] = labels
-df.head()
 
 from sklearn.metrics import accuracy_score
 # General accuracy
@@ -132,8 +131,18 @@ accuracy_score(y_true, y_pred)
 # False positive: 1-0.84= 0.16
 # There's a higher false positive than false negative, so we can say that the model tends to mistakenly predict 'teeth_detected' when teeth are not shown.
 
+###########Confusion Matrix
+from sklearn.metrics import confusion_matrix
+import scikitplot as skplt
+skplt.metrics.plot_confusion_matrix(
+      y_true,
+      y_pred,
+      figsize=(8,8),
+      title = 'Teeth Detection' )
+
+
+
 # Have a look at the wrong predicted pictures
 wrong_df = df[df['predict_teeth_label'] != df['true_label']]
 wrong_df
-
 # After investigating each mis-classified picture, we can see that 2 out of 5 have mustache. However, we don't have enough data points to prove this assumption.

@@ -12,8 +12,6 @@ import dlib
 import numpy as np
 import matplotlib.pyplot as plt
 
-import requests
-from io import BytesIO
 from PIL import Image
 
 from scipy.spatial import distance as dist
@@ -98,7 +96,7 @@ def face_big_enough(face_detector, img, landmark_detector):
 
     face_percent = contour_area/img_area
     face_percent_str = str(face_percent*100)+'%'
-    return [face_percent_str, face_percent >= 0.5]
+    return [face_percent_str, face_percent >= 0.25]
 
 
 ################################### For teeth detection
@@ -113,11 +111,14 @@ def smile_MAR (face_detector, img, landmark_detector):
                    dist.euclidean(landmark_tuple[63], landmark_tuple[65]))/3
 
     MAR = smile_height/smile_width
-    # For debugging
+    # # For debugging
     # lips_dots_indexes = [48, 54, 61, 67, 62, 66, 63, 65]
     # for i in lips_dots_indexes:
     #     cv2.circle(img, landmark_tuple[i], 1, (0, 100, 0), -1)
+
     plt.imshow(img)
+    # Testing
+    # print('MAR for this picture: ')
     return MAR
 
 def detect_teeth(face_detector, img, landmark_detector):
@@ -126,8 +127,7 @@ def detect_teeth(face_detector, img, landmark_detector):
     return my_mar >= 0.09
 
 
+###########################################################
 
 
-
-
-###########
+#

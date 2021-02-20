@@ -27,20 +27,22 @@ def sign_in (driver):
 
 
 def get_img_url(driver, profile_url):
-    # Given an profile url, return the profile img url
+    # Given an profile url, return the profile img url, so that we can later download the img with request
     # Driver setup
     driver.get(profile_url)
     driver.add_cookie({'name' : "li_at", 'value' : cookie_value})
     print(driver.title)
 
+    # Once you get the BeautifulSoup, you can extract any information on the LinkedIn profile page!
+    # Here I'm only focusing on getting the profile image url
     soup = BeautifulSoup(driver.page_source, 'lxml')
     img_class = "pv-top-card__photo presence-entity__image EntityPhoto-circle-9 lazy-image ember-view"
     img_element = soup.find('img',{'class':img_class} )
     return img_element['src']
 
 
-
-# # Testing
+""" Set up the chromedriver in selenium, please make sure you have selenium and chromedriver downloaded"""
+'You can uncomment this section for testing.'
 # # Set up the driver
 # DRIVER_PATH = '/Users/chenlang/Documents/ChromeDriver/chromedriver'
 # driver = webdriver.Chrome(executable_path=DRIVER_PATH)

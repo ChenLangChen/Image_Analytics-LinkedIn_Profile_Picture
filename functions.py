@@ -60,6 +60,26 @@ def process_emotions (face_dict):
     return max_key(my_emotions)
 
 
-
-
+#########################################
+# # This section is fore testing the sentiment analysis from Azure API, below are image addresses
+# disgust_img = 'https://www.whitman.edu/images/Newsroom/News/Magazine/2017/Summer/TOM_ARMSTRONG_DISGUST-400.jpg'
+# anger_img = 'https://miro.medium.com/max/3840/1*cD8nIooIkIrLoHKBOGnj9A.jpeg'
+# surprise_img = 'https://us.123rf.com/450wm/avemario/avemario1510/avemario151000125/46788327-surprise-astonished-beautiful-mixed-race-woman-closeup-portrait-woman-surprised-in-full-disbelief-op.jpg?ver=6'
+# fear_img = 'https://www.practicalheartskills.com/wp-content/uploads/home-alone.jpg'
 #
+#
+# import matplotlib.pyplot as plt
+#
+# def print_img (img_url):
+#     response = requests.get(img_url)
+#     img = Image.open(BytesIO(response.content))
+#     plt.imshow(img)
+#
+# def sentiment_detection(img_url):
+#     # Function to print the img and the detected sentiment
+#     print_img (img_url)
+#     face_dicts = get_faceDict(img_url)
+#     my_emotion = process_emotions(face_dicts[0])
+#     print('Emotion: ' + my_emotion)
+#
+# sentiment_detection(fear_img)
